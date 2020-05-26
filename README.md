@@ -14,7 +14,9 @@ Apache 2.0 license.
 
 MCreator's official website: https://mcreator.net/
 
-MCreator is a trademark of Pylo.
+MCreator is a trademark of Pylo. 
+
+Other components of MCreator are licensed under other licenses, this license only applies to the files in this repository.
 
 ## More documentation on generators
 
