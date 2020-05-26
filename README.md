@@ -1,7 +1,7 @@
 # MCreator generator for Minecraft Forge 1.12.2 mods
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Pylo/MCreatorGenerator-Forge-1.12.2/blob/master/LICENSE)
 
-**WARNING: Minecraft 1.12.2 is no longer supported. This repository here is only for reference purposes
+**WARNING: Minecraft 1.12.2 is no longer supported by MCreator (Pylo). This repository here is only for reference purposes
 and for community use. It is not officially supported.**
 
 This plugin in its current state is compatible with MCreator 2020.2. Further work on this plugin 
