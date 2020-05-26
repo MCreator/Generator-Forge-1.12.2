@@ -1,5 +1,5 @@
 # MCreator generator for Minecraft Forge 1.12.2 mods
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Pylo/MCreatorGenerator-forge-1.12.2/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Pylo/MCreatorGenerator-Forge-1.12.2/blob/master/LICENSE)
 
 **WARNING: Minecraft 1.12.2 is no longer supported. This repository here is only for reference purposes
 and for community use. It is not officially supported.**
