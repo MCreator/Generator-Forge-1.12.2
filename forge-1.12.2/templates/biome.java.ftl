@@ -43,7 +43,6 @@ package ${package}.world.biome;
 			decorator.treesPerChunk = ${data.treesPerChunk};
 			decorator.flowersPerChunk = ${data.flowersPerChunk};
 			decorator.grassPerChunk = ${data.grassPerChunk};
-			decorator.deadBushPerChunk = ${data.deadBushesPerChunk};
 			decorator.mushroomsPerChunk = ${data.mushroomsPerChunk};
 			decorator.bigMushroomsPerChunk = ${data.bigMushroomsChunk};
 			decorator.reedsPerChunk = ${data.reedsPerChunk};

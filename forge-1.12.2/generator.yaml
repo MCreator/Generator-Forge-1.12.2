@@ -1,9 +1,7 @@
 name: Minecraft Forge for @minecraft (@buildfileversion)
-basefeatures: [global_variables, model_json, model_obj, model_java, link, i18n, structures, textures, sounds]
-partial_support: [loottable, recipe]
+basefeatures: [~variables, model_json, model_obj, model_java, i18n, structures, textures, sounds]
+partial_support: [loottable, recipe, block, achievement, mob, keybind]
 status: deprecated
-minecraft: 1.12.2
-flavor: forge
 buildfileversion: 14.23.5.2768
 
 start_id_map:
@@ -18,6 +16,14 @@ gradle:
 source_root: "@WORKSPACEROOT/src/main/java"
 res_root: "@WORKSPACEROOT/src/main/resources"
 mod_assets_root: "@RESROOT/assets/@modid"
+
+# specific resource folders
+structures_dir: "@MODASSETSROOT/structures"
+sounds_dir: "@MODASSETSROOT/sounds"
+other_textures_dir: "@MODASSETSROOT/textures"
+block_textures_dir: "@MODASSETSROOT/textures/blocks"
+item_textures_dir: "@MODASSETSROOT/textures/items"
+armor_textures_dir: "@MODASSETSROOT/textures/models/armor"
 
 base_templates:
   - template: modbase/modelements.java.ftl
@@ -52,24 +58,9 @@ language_file:
   langfile_name: "@langname.lang"
 
 resources_setup_tasks:
-  - task: sync_dir
-    from: "@TEXTURES_OTHER"
-    to: "@MODASSETSROOT/textures"
-  - task: sync_dir
-    from: "@TEXTURES_BLOCKS"
-    to: "@MODASSETSROOT/textures/blocks"
-  - task: sync_dir
-    from: "@TEXTURES_ITEMS"
-    to: "@MODASSETSROOT/textures/items"
-  - task: sync_dir
-    from: "@TEXTURES_ARMOR"
-    to: "@MODASSETSROOT/textures/models/armor"
-  - task: sync_dir
-    from: "@SOUNDS"
-    to: "@MODASSETSROOT/sounds"
-  - task: sync_dir
-    from: "@STRUCTURES"
-    to: "@MODASSETSROOT/structures"
+  - task: copy_file
+    from: "@MODASSETSROOT/textures/@modpicture.png"
+    to: "@RESROOT/logo.png"
   - task: copy_models
     type: OBJ
     to: "@MODASSETSROOT/models/item"

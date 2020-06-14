@@ -1,8 +1,8 @@
 public static class ChunkProviderModded implements IChunkGenerator
 {
 	private static final IBlockState STONE = ${mappedBlockToBlockStateCode(data.mainFillerBlock)};
-	private static final IBlockState STONE2 = ${mappedBlockToBlockStateCode(data.secondaryFillerBlock)};
-	private static final IBlockState STONE3 = ${mappedBlockToBlockStateCode(data.tertiaryFillerBlock)};
+	private static final IBlockState STONE2 = ${mappedBlockToBlockStateCode(data.mainFillerBlock)};
+	private static final IBlockState STONE3 = ${mappedBlockToBlockStateCode(data.mainFillerBlock)};
 	private static final IBlockState FLUID = ${mappedBlockToBlockStateCode(data.fluidBlock)};
 	private static final IBlockState AIR = Blocks.AIR.getDefaultState();
 	private static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();

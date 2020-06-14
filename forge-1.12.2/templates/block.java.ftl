@@ -508,18 +508,6 @@ package ${package}.block;
     	}
 		</#if>
 
-		<#if data.faceShape != "SOLID">
-		@Override public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {
-        	return BlockFaceShape.${data.faceShape};
-    	}
-		</#if>
-
-		<#if !data.affectedBySilkTouch>
-        @Override public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-			return false;
-		}
-        </#if>
-
         <#if data.plantsGrowOn>
         @Override
 		public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,

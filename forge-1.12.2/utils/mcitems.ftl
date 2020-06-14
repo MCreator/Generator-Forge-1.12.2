@@ -3,11 +3,11 @@
         <#return mappedBlock>
     <#elseif mappedBlock.toString().startsWith("CUSTOM:")>
         <#if !mappedBlock.toString().contains(".")>
-            <#return (mappedBlock.toString().replace("CUSTOM:", (generator.getType(mappedBlock.toString())
-            .getRecipeElementType() == "BLOCK")?then("Block", "Item"))) + ".block.getDefaultState()">
+            <#return (mappedBlock.toString().replace("CUSTOM:", (generator.getRecipeElementType(mappedBlock.toString())
+             == "BLOCK")?then("Block", "Item"))) + ".block.getDefaultState()">
         <#else>
-            <#return (mappedBlock.toString().replace("CUSTOM:", (generator.getType(mappedBlock.toString())
-            .getRecipeElementType() == "BLOCK")?then("Block", "Item"))) + ".getDefaultState()">
+            <#return (mappedBlock.toString().replace("CUSTOM:", (generator.getRecipeElementType(mappedBlock.toString())
+             == "BLOCK")?then("Block", "Item"))) + ".getDefaultState()">
         </#if>
     <#elseif !mappedBlock.toString().contains("#")>
         <#return mappedBlock + ".getDefaultState()">
@@ -21,11 +21,11 @@
         <#return mappedBlock?replace("/*@ItemStack*/", "")>
     <#elseif mappedBlock.toString().startsWith("CUSTOM:")>
         <#if !mappedBlock.toString().contains(".")>
-            <#return "new ItemStack("+ (mappedBlock.toString().replace("CUSTOM:", (generator.getType(mappedBlock.toString())
-            .getRecipeElementType() == "BLOCK")?then("Block", "Item"))) + ".block, (int)(" + amount + "))">
+            <#return "new ItemStack("+ (mappedBlock.toString().replace("CUSTOM:", (generator.getRecipeElementType(mappedBlock.toString())
+             == "BLOCK")?then("Block", "Item"))) + ".block, (int)(" + amount + "))">
         <#else>
-            <#return "new ItemStack("+ (mappedBlock.toString().replace("CUSTOM:", (generator.getType(mappedBlock.toString())
-            .getRecipeElementType() == "BLOCK")?then("Block", "Item"))) + ", (int)(" + amount + "))">
+            <#return "new ItemStack("+ (mappedBlock.toString().replace("CUSTOM:", (generator.getRecipeElementType(mappedBlock.toString())
+             == "BLOCK")?then("Block", "Item"))) + ", (int)(" + amount + "))">
         </#if>
     <#elseif !mappedBlock.toString().contains("#")>
         <#return "new ItemStack(" + mappedBlock.toString().split("#")[0] + ", (int)(" + amount + "))">

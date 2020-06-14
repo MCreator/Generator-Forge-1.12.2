@@ -55,14 +55,6 @@ package ${package}.potion;
         	return ${data.isInstant};
     	}
 
-    	@Override public List<ItemStack> getCurativeItems() {
-        	List<ItemStack> ret = new ArrayList<>();
-        	<#list data.curativeItems as item>
-				ret.add(${mappedMCItemToItemStackCode(item,1)});
-            </#list>
-        	return ret;
-   	 	}
-
    	 	@Override public boolean shouldRenderInvText(PotionEffect effect) {
     	    return ${data.renderStatusInInventory};
     	}
