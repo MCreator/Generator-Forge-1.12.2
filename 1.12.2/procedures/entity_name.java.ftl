@@ -1,1 +1,1 @@
-(entity.getDisplayName().getFormattedText())
+(entity.getDisplayName().getUnformattedText())
