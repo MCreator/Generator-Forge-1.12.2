@@ -1,4 +1,4 @@
-if(entity instanceof EntityPlayer) {
-    ((EntityPlayer)entity).capabilities.allowFlying = ${input$condition};
-    ((EntityPlayer)entity).sendPlayerAbilities();
+if(${input$entity} instanceof EntityPlayer) {
+    ((EntityPlayer)${input$entity}).capabilities.allowFlying = ${input$condition};
+    ((EntityPlayer)${input$entity}).sendPlayerAbilities();
 }

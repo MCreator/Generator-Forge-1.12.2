@@ -1,2 +1,2 @@
-if(entity instanceof EntityPlayer)
-    ((EntityPlayer) entity).closeScreen();
+if(${input$entity} instanceof EntityPlayer)
+    ((EntityPlayer) ${input$entity}).closeScreen();

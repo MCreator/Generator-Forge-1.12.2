@@ -1,1 +1,1 @@
-(entity.posY)
+(${input$entity}.posY)

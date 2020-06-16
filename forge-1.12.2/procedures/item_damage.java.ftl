@@ -1,4 +1,8 @@
-if(itemstack.attemptDamageItem((int) ${input$amount},new Random(),null)){
-    itemstack.shrink(1);
-    itemstack.setItemDamage(0);
+<#include "mcitems.ftl">
+{
+    ItemStack _ist = ${mappedMCItemToItemStackCode(input$item, 1)};
+    if(_ist.attemptDamageItem((int) ${input$amount},new Random(),null)){
+        _ist.shrink(1);
+        _ist.setItemDamage(0);
+    }
 }

@@ -1,1 +1,1 @@
-(entity.motionY)
+(${input$entity}.motionY)

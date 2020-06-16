@@ -117,6 +117,18 @@ package ${package}.block;
 			return ${data.fireSpreadSpeed};
 		}
 		</#if>
+		
+		<#if generator.map(data.aiPathNodeType, "pathnodetypes") != "DEFAULT">
+		@Override public PathNodeType getAiPathNodeType(IBlockState state, IBlockAccess world, BlockPos pos) {
+			return PathNodeType.${generator.map(data.aiPathNodeType, "pathnodetypes")};
+		}
+		</#if>
+
+		<#if data.offsetType != "XZ">
+		@Override public Block.EnumOffsetType getOffsetType() {
+			return Block.EnumOffsetType.${data.offsetType};
+		}
+		</#if>
 
 		<#if data.dropAmount != 1 && !(data.customDrop?? && !data.customDrop.isEmpty())>
 		@Override public int quantityDropped(Random random) {

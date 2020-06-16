@@ -1,1 +1,1 @@
-((entity instanceof EntityPlayer)?((EntityPlayer)entity).experienceLevel:0)
+((${input$entity} instanceof EntityPlayer)?((EntityPlayer)${input$entity}).experienceLevel:0)

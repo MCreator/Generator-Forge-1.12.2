@@ -1,1 +1,1 @@
-(entity.getHorizontalFacing())
+(${input$entity}.getHorizontalFacing())

@@ -1,1 +1,1 @@
-(entity.posZ)
+(${input$entity}.posZ)

@@ -1,1 +1,1 @@
-(entity.isSprinting())
+(${input$entity}.isSprinting())

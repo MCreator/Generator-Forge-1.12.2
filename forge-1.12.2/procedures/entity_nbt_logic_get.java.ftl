@@ -1,1 +1,1 @@
-(entity.getEntityData().getBoolean(${input$tagName}))
+(${input$entity}.getEntityData().getBoolean(${input$tagName}))

@@ -1,1 +1,1 @@
-(entity.getEntityData().getDouble(${input$tagName}))
+(${input$entity}.getEntityData().getDouble(${input$tagName}))

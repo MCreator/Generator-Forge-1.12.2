@@ -507,6 +507,18 @@ package ${package}.block;
         	return MapColor.${generator.map(data.colorOnMap, "mapcolors")};
     	}
 		</#if>
+	
+		<#if generator.map(data.aiPathNodeType, "pathnodetypes") != "DEFAULT">
+		@Override public PathNodeType getAiPathNodeType(IBlockState state, IBlockAccess world, BlockPos pos) {
+			return PathNodeType.${generator.map(data.aiPathNodeType, "pathnodetypes")};
+	}
+		</#if>
+
+		<#if data.offsetType != "NONE">
+		@Override public Block.EnumOffsetType getOffsetType() {
+			return Block.EnumOffsetType.${data.offsetType};
+	}
+		</#if>
 
         <#if data.plantsGrowOn>
         @Override

@@ -1,1 +1,1 @@
-(entity.rotationYaw)
+(${input$entity}.rotationYaw)

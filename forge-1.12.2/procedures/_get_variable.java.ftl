@@ -1,9 +1,25 @@
 <#if scope == "GLOBAL_SESSION">
-        (${JavaModName}Variables.${name})
+        <#if type == "ITEMSTACK">
+                    /*@ItemStack*/(${JavaModName}Variables.${name})
+        <#else>
+                    (${JavaModName}Variables.${name})
+        </#if>
 <#elseif scope == "GLOBAL_WORLD">
-        (${JavaModName}Variables.WorldVariables.get(world).${name})
+        <#if type == "ITEMSTACK">
+                /*@ItemStack*/(${JavaModName}Variables.WorldVariables.get(world).${name})
+        <#else>
+                (${JavaModName}Variables.WorldVariables.get(world).${name})
+        </#if>
 <#elseif scope == "GLOBAL_MAP">
-        (${JavaModName}Variables.MapVariables.get(world).${name})
+        <#if type == "ITEMSTACK">
+                /*@ItemStack*/(${JavaModName}Variables.MapVariables.get(world).${name})
+        <#else>
+                (${JavaModName}Variables.MapVariables.get(world).${name})
+        </#if>
 <#elseif scope == "local">
-        (${name})
+        <#if type == "ITEMSTACK">
+                /*@ItemStack*/(${name})
+        <#else>
+                (${name})
+        </#if>
 </#if>

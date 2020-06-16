@@ -1,1 +1,1 @@
-((entity instanceof EntityLivingBase)?((EntityLivingBase)entity).getHealth():-1)
+((${input$entity} instanceof EntityLivingBase)?((EntityLivingBase)${input$entity}).getHealth():-1)
