@@ -1,1 +1,2 @@
-if(entity instanceof EntityPlayer)((EntityPlayer)entity).addExperienceLevel((int)${input$xpamount});
+if(${input$entity} instanceof EntityPlayer)
+            ((EntityPlayer)${input$entity}).addExperienceLevel((int)${input$xpamount});

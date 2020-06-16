@@ -1,1 +1,1 @@
-entity.getEntityData().setString(${input$tagName}, ${input$tagValue});
+${input$entity}.getEntityData().setString(${input$tagName}, ${input$tagValue});

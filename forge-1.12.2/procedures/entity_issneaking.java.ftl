@@ -1,1 +1,1 @@
-(entity.isSneaking())
+(${input$entity}.isSneaking())

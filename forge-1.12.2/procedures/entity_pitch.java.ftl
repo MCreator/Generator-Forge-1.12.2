@@ -1,1 +1,1 @@
-(entity.rotationPitch)
+(${input$entity}.rotationPitch)

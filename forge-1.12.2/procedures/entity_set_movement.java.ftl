@@ -1,3 +1,3 @@
-entity.motionX = ${input$vx};
-entity.motionY = ${input$vy};
-entity.motionZ = ${input$vz};
+${input$entity}.motionX = ${input$vx};
+${input$entity}.motionY = ${input$vy};
+${input$entity}.motionZ = ${input$vz};

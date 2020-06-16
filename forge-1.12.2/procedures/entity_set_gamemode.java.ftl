@@ -1,2 +1,2 @@
-if(entity instanceof EntityPlayer)
-	((EntityPlayer)entity).setGameType(GameType.${generator.map(field$gamemode, "gamemodes")});
+if(${input$entity} instanceof EntityPlayer)
+	((EntityPlayer)${input$entity}).setGameType(GameType.${generator.map(field$gamemode, "gamemodes")});

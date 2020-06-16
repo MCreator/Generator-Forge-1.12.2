@@ -1,3 +1,3 @@
-if(entity instanceof EntityLivingBase){
-	((EntityLivingBase)entity).swingArm(EnumHand.OFF_HAND);
+if(${input$entity} instanceof EntityLivingBase){
+	((EntityLivingBase)${input$entity}).swingArm(EnumHand.OFF_HAND);
 }

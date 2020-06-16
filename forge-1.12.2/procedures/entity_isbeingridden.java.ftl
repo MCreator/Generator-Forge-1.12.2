@@ -1,1 +1,1 @@
-(entity.isBeingRidden())
+(${input$entity}.isBeingRidden())

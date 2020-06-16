@@ -1,1 +1,1 @@
-entity.setCustomNameTag(${input$displayname});
+${input$entity}.setCustomNameTag(${input$displayname});

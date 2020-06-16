@@ -1,1 +1,1 @@
-entity.setInWeb();
+${input$entity}.setInWeb();

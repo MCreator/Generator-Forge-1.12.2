@@ -1,2 +1,2 @@
-entity.rotationYaw = ${input$yaw};
-entity.rotationPitch = ${input$pitch};
+${input$entity}.rotationYaw = ${input$yaw};
+${input$entity}.rotationPitch = ${input$pitch};

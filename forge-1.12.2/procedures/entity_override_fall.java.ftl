@@ -1,1 +1,1 @@
-entity.fallDistance = (float)(${input$height});
+${input$entity}.fallDistance = (float)(${input$height});

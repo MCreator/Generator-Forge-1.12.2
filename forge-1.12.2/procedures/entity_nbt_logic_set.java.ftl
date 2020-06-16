@@ -1,1 +1,1 @@
-entity.getEntityData().setBoolean(${input$tagName}, ${input$tagValue});
+${input$entity}.getEntityData().setBoolean(${input$tagName}, ${input$tagValue});

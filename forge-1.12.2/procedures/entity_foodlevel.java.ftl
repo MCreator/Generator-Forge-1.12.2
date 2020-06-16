@@ -1,1 +1,1 @@
-((entity instanceof EntityPlayer)?((EntityPlayer)entity).getFoodStats().getFoodLevel():0)
+((${input$entity} instanceof EntityPlayer)?((EntityPlayer)${input$entity}).getFoodStats().getFoodLevel():0)

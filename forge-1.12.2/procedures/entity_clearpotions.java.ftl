@@ -1,1 +1,1 @@
-if(entity instanceof EntityLivingBase)((EntityLivingBase)entity).clearActivePotions();
+if(${input$entity} instanceof EntityLivingBase)((EntityLivingBase)${input$entity}).clearActivePotions();

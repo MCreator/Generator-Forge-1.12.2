@@ -1,1 +1,1 @@
-((entity instanceof EntityPlayer)?((EntityPlayer)entity).capabilities.isCreativeMode:false)
+((${input$entity} instanceof EntityPlayer)?((EntityPlayer)${input$entity}).capabilities.isCreativeMode:false)

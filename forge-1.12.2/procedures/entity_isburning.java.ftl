@@ -1,1 +1,1 @@
-(entity.isBurning())
+(${input$entity}.isBurning())

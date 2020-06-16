@@ -1,1 +1,1 @@
-(entity.canUseCommand((int) ${input$permissionlevel}, ""))
+(${input$entity}.canUseCommand((int) ${input$permissionlevel}, ""))

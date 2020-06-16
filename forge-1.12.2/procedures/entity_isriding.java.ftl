@@ -1,1 +1,1 @@
-(entity.isRiding())
+(${input$entity}.isRiding())

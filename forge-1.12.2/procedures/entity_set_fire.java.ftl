@@ -1,1 +1,1 @@
-entity.setFire((int)${input$seconds});
+${input$entity}.setFire((int)${input$seconds});
