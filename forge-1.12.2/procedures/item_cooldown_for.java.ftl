@@ -1,2 +1,3 @@
-if(entity instanceof EntityPlayer)
-	((EntityPlayer)entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) ${input$ticks});
+<#include "mcitems.ftl">
+if(${input$entity} instanceof EntityPlayer)
+	((EntityPlayer)${input$entity}).getCooldownTracker().setCooldown((${mappedMCItemToItemStackCode(input$item, 1)}).getItem(), (int) ${input$ticks});

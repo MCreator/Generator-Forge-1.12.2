@@ -1,1 +1,2 @@
-itemstack.setStackDisplayName(${input$displayname});
+<#include "mcitems.ftl">
+(${mappedMCItemToItemStackCode(input$item, 1)}).setStackDisplayName(${input$displayname});
