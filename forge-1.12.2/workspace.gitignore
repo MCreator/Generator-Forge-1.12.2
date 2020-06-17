@@ -20,3 +20,6 @@ src/main/resources/assets/*/textures/items
 src/main/resources/assets/*/textures/models/armor
 src/main/resources/assets/*/textures/*.png
 src/main/resources/assets/*/sounds
+
+# MacOS system files
+.DS_STORE
