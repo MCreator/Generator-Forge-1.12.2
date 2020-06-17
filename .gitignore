@@ -1,0 +1,24 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# Mac OS Garbage    
+.DS_Store
+
+# VSCode
+.vscode
+*.code-workspace
+
+# BBedit
+*.bbproject
