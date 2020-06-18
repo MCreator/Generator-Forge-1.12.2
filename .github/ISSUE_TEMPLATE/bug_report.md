@@ -25,5 +25,8 @@ If applicable, add screenshots to help explain your problem.
  - MCreator version [e.g. 2020.3]
  - Generator type: forge-1.12.2
 
+**Demo workspace**
+If the bug is related to the workspace, always provide a minimal reproducible example workspace, export it to a shareable ZIP file, and attach it to the ticket.
+
 **Additional context**
 Add any other context about the problem here.
