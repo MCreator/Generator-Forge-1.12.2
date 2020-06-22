@@ -55,8 +55,8 @@ package ${package}.world.biome;
 			this.spawnableWaterCreatureList.clear();
 			this.spawnableCaveCreatureList.clear();
 
-			<#list data.spawnList as entity>
-				this.spawnableCreatureList.add(new SpawnListEntry(${entity}.class, 40, 1, 5));
+			<#list data.spawnEntries as spawnEntry>
+				this.spawnableCreatureList.add(new SpawnListEntry(${spawnEntry.entity}.class, ${spawnEntry.weight}, ${spawnEntry.minGroup}, ${spawnEntry.maxGroup}));
             </#list>
 		}
 
