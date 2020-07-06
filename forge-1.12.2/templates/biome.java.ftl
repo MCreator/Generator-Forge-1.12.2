@@ -34,7 +34,8 @@ package ${package}.world.biome;
 
 		public BiomeGenCustom() {
 			super(new Biome.BiomeProperties("${data.name!registryname}").setRainfall(${data.rainingPossibility}F)
-				.setBaseHeight(${data.baseHeight}F)<#if data.customColors>.setWaterColor(${data.waterColor.getRGB()})</#if>
+				.setBaseHeight(${data.baseHeight}F)
+				<#if data.waterColor?has_content>.setWaterColor(${data.waterColor.getRGB()})</#if>
 				.setHeightVariation(${data.heightVariation}F).setTemperature(${data.temperature}F));
 			setRegistryName("${registryname}");
 			topBlock = ${mappedBlockToBlockStateCode(data.groundBlock)};
@@ -60,7 +61,7 @@ package ${package}.world.biome;
             </#list>
 		}
 
-		<#if data.customColors>
+		<#if data.grassColor?has_content>
 		@SideOnly(Side.CLIENT) @Override public int getGrassColorAtPos(BlockPos pos) {
 			return ${data.grassColor.getRGB()};
 		}
@@ -68,7 +69,9 @@ package ${package}.world.biome;
 		@SideOnly(Side.CLIENT) @Override public int getFoliageColorAtPos(BlockPos pos) {
 			return ${data.grassColor.getRGB()};
 		}
+		</#if>
 
+		<#if data.airColor?has_content>
 		@SideOnly(Side.CLIENT) @Override public int getSkyColorByTemp(float currentTemperature) {
 			return ${data.airColor.getRGB()};
 		}

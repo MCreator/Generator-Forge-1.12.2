@@ -29,7 +29,7 @@ package ${package}.gui.overlay;
 				int y = (int) entity.posY;
 				int z = (int) entity.posZ;
 
-				if (${conditioncode}) {
+				if (<@procedureOBJToConditionCode data.displayCondition/>) {
 					<#if data.baseTexture?has_content>
 						GlStateManager.disableDepth();
         				GlStateManager.depthMask(false);
