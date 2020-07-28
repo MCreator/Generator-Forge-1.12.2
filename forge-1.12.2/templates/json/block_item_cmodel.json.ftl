@@ -1,6 +1,12 @@
+<#-- @formatter:off -->
 {
     "parent": "item/handheld",
     "textures": {
-"layer0": "${modid}:blocks/${data.texture}"
+        <#if data.itemTexture?has_content>
+        "layer0": "${modid}:items/${data.itemTexture}"
+        <#else>
+        "layer0": "${modid}:blocks/${data.texture}"
+        </#if>
     }
 }
+<#-- @formatter:on -->
