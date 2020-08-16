@@ -1,5 +1,6 @@
 <#-- @formatter:off -->
 <#include "tokens.ftl">
+<#include "procedures.java.ftl">
 
 package ${package}.gui.overlay;
 
