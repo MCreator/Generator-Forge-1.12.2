@@ -1,5 +1,6 @@
 <#-- @formatter:off -->
 <#include "tokens.ftl">
+<#include "procedures.java.ftl">
 
 package ${package}.gui.overlay;
 
@@ -39,8 +40,7 @@ package ${package}.gui.overlay;
 
 						Minecraft.getMinecraft().renderEngine
 									.bindTexture(new ResourceLocation("${modid}:textures/${data.baseTexture}"));
-						Minecraft.getMinecraft().ingameGUI.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, ${data.baseTextureW}, ${data.baseTextureH},
-								event.getResolution().getScaledWidth(), event.getResolution().getScaledHeight());
+						Minecraft.getMinecraft().ingameGUI.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, event.getResolution().getScaledWidth(), event.getResolution().getScaledHeight(), event.getResolution().getScaledWidth(), event.getResolution().getScaledHeight());
 
 						GlStateManager.depthMask(true);
         				GlStateManager.enableDepth();
@@ -49,8 +49,8 @@ package ${package}.gui.overlay;
 					</#if>
 
 					<#list data.components as component>
-                        <#assign x = (component.x/2 - 213)?round>
-                        <#assign y = (component.y/2 - 120)?round>
+                        <#assign x = component.x - 213>
+                        <#assign y = component.y - 120>
                         <#if component.getClass().getSimpleName() == "Label">
 							Minecraft.getMinecraft().fontRenderer
 								.drawString("${translateTokens(JavaConventions.escapeStringForJava(component.text))}",
@@ -64,8 +64,20 @@ package ${package}.gui.overlay;
 
 							Minecraft.getMinecraft().renderEngine
 									.bindTexture(new ResourceLocation("${modid}:textures/${component.image}"));
+									
+							<#if component.use1Xscale>
 							Minecraft.getMinecraft().ingameGUI
-								.drawTexturedModalRect(posX + ${x}, posY + ${y}, 0, 0, 256, 256);
+								.	drawModalRectWithCustomSizedTexture(posX + ${x}, posY + ${y}, 0, 0,
+								${(component.getWidth(w.getWorkspace()) / 2)?floor}, ${(component.getHeight(w.getWorkspace()) / 2)?floor},
+								${(component.getWidth(w.getWorkspace()) / 2)?floor}, ${(component.getHeight(w.getWorkspace()) / 2)?floor});
+							<#else>
+							Minecraft.getMinecraft().ingameGUI
+								.	drawModalRectWithCustomSizedTexture(posX + ${x}, posY + ${y}, 0, 0,
+								${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())},
+								${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())});
+							</#if>
+									
+
 
 							GlStateManager.depthMask(true);
         					GlStateManager.enableDepth();
