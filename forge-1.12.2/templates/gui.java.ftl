@@ -238,16 +238,9 @@ package ${package}.gui;
 			<#list data.components as component>
                 <#if component.getClass().getSimpleName() == "Image">
 					this.mc.renderEngine.bindTexture(new ResourceLocation("${modid}:textures/${component.image}"));
-					
-					<#if component.use1Xscale>
-					this.drawModalRectWithCustomSizedTexture(this.guiLeft + ${(component.x - mx/2)?int}, this.guiTop + ${(component.y - my/2)?int}, 0, 0,
-						${(component.getWidth(w.getWorkspace()) / 2)?int}, ${(component.getHeight(w.getWorkspace()) / 2)?int},
-						${(component.getWidth(w.getWorkspace()) / 2)?int}, ${(component.getHeight(w.getWorkspace()) / 2)?int});
-					<#else>
 					this.drawModalRectWithCustomSizedTexture(this.guiLeft + ${(component.x - mx/2)?int}, this.guiTop + ${(component.y - my/2)?int}, 0, 0,
 						${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())},
 						${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())});
-					</#if>
                 </#if>
             </#list>
 		}
