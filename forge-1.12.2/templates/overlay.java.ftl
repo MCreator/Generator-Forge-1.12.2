@@ -64,20 +64,10 @@ package ${package}.gui.overlay;
 
 							Minecraft.getMinecraft().renderEngine
 									.bindTexture(new ResourceLocation("${modid}:textures/${component.image}"));
-									
-							<#if component.use1Xscale>
-							Minecraft.getMinecraft().ingameGUI
-								.	drawModalRectWithCustomSizedTexture(posX + ${x}, posY + ${y}, 0, 0,
-								${(component.getWidth(w.getWorkspace()) / 2)?floor}, ${(component.getHeight(w.getWorkspace()) / 2)?floor},
-								${(component.getWidth(w.getWorkspace()) / 2)?floor}, ${(component.getHeight(w.getWorkspace()) / 2)?floor});
-							<#else>
 							Minecraft.getMinecraft().ingameGUI
 								.	drawModalRectWithCustomSizedTexture(posX + ${x}, posY + ${y}, 0, 0,
 								${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())},
 								${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())});
-							</#if>
-									
-
 
 							GlStateManager.depthMask(true);
         					GlStateManager.enableDepth();
