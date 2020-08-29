@@ -1,3 +1,4 @@
+<#if field$dimension??><#--Here for legacy reasons as field$dimension does not exist in older workspaces-->
 {
 	Entity _ent = ${input$entity};
 	if(!_ent.world.isRemote&&!_ent.isRiding()&&!_ent.isBeingRidden()
@@ -39,3 +40,4 @@
 				_player.rotationYaw,_player.rotationPitch);
 	}
 }
+</#if>
