@@ -1,5 +1,5 @@
 # MCreator generator for Minecraft Forge 1.12.2 mods
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Pylo/MCreatorGenerator-Forge-1.12.2/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/MCreator/Generator-Forge-1.12.2/blob/master/LICENSE)
 
 ## For MCreator 2020.5
 
@@ -35,7 +35,7 @@ Check MCreator's wiki for more documentation: [How to make new generator](https:
 
 You are welcome to support this project by opening pull requests.
 
-Before we can use your code, you must sign the [MCreator CLA](https://cla-assistant.io/Pylo/MCreatorGenerator-Forge-1.12.2), which you can do online. The CLA is necessary mainly because you own the copyright to your changes, even after your contribution becomes part of our codebase, so we need your permission to use and distribute your code. We also need to be sure of various other things—for instance that you'll tell us if you know that your code infringes on other people's patents. You don't have to sign the CLA until after you've submitted your code for review and we approved it, but you must do it before we can put your code into our codebase.
+Before we can use your code, you must sign the [MCreator CLA](https://cla-assistant.io/MCreator/Generator-Forge-1.12.2), which you can do online. The CLA is necessary mainly because you own the copyright to your changes, even after your contribution becomes part of our codebase, so we need your permission to use and distribute your code. We also need to be sure of various other things—for instance that you'll tell us if you know that your code infringes on other people's patents. You don't have to sign the CLA until after you've submitted your code for review and we approved it, but you must do it before we can put your code into our codebase.
 
 ## Notice
 
