@@ -1,20 +1,20 @@
 <#include "tokens.ftl">
+<#include "procedures.java.ftl">
 
-<#macro particles type particleObj radious amount condition>
-    <#local conditionProcessed = (condition == "ALWAYS")?then("true", translateGlobalVarName(condition.replace("VAR:", "")))>
+<#macro particles type particleObj radious amount condition="">
     <#if type=="Spread" >
-        <@particlesSpread particleObj radious amount conditionProcessed/>
+        <@particlesSpread particleObj radious amount condition/>
     <#elseif type=="Top" >
-        <@particlesTop particleObj radious amount conditionProcessed/>
+        <@particlesTop particleObj radious amount condition/>
     <#elseif type=="Tube" >
-        <@particlesTube particleObj radious amount conditionProcessed/>
+        <@particlesTube particleObj radious amount condition/>
     <#elseif type=="Plane" >
-        <@particlesPlane particleObj radious amount conditionProcessed/>
+        <@particlesPlane particleObj radious amount condition/>
     </#if>
 </#macro>
 
 <#macro particlesPlane particleObj radious amount condition>
-if(${condition})
+if(<@procedureOBJToConditionCode condition/>)
 	for(int l=0;l< ${amount}; ++l) {
 		double d0 = (i + 0.5) + (random.nextFloat() - 0.5) * ${radious}D * 20;
 		double d1 = ((j + 0.7) + (random.nextFloat() - 0.5) * ${radious}D)+0.5;
@@ -24,7 +24,7 @@ if(${condition})
 </#macro>
 
 <#macro particlesSpread particleObj radious amount condition>
-if(${condition})
+if(<@procedureOBJToConditionCode condition/>)
 	for (int l = 0; l < ${amount}; ++l) {
 	    double d0 = (i + random.nextFloat());
 	    double d1 = (j + random.nextFloat());
@@ -38,7 +38,7 @@ if(${condition})
 </#macro>
 
 <#macro particlesTop particleObj radious amount condition>
-if(${condition})
+if(<@procedureOBJToConditionCode condition/>)
     for (int l = 0; l < ${amount}; ++l) {
 		double d0 = (double)((float)i + 0.5) + (double)(random.nextFloat() - 0.5) * ${radious}D;
 		double d1 = ((double)((float)j + 0.7) + (double)(random.nextFloat() - 0.5) * ${radious}D)+0.5;
@@ -48,7 +48,7 @@ if(${condition})
 </#macro>
 
 <#macro particlesTube particleObj radious amount condition>
-if(${condition})
+if(<@procedureOBJToConditionCode condition/>)
     for (int l = 0; l < ${amount}; ++l){
 		double d0=(i+0.5)+(random.nextFloat()-0.5)* ${radious}D;
 		double d1=((j+0.7)+(random.nextFloat()-0.5)* ${radious}D*100)+0.5D;

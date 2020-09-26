@@ -3,7 +3,12 @@ templates:
     name: "@SRCROOT/@BASEPACKAGEPATH/item/Item@NAME.java"
   - template: json/item.json.ftl
     writer: json
-    condition: "renderType #= 0"
+    condition: ["renderType #= 0", "hasNormalModel()"]
+    exclude: "@MODASSETSROOT/blockstates/@registryname.json"
+    name: "@MODASSETSROOT/models/item/@registryname.json"
+  - template: json/tool.json.ftl
+    writer: json
+    condition: ["renderType #= 0", "hasToolModel()"]
     exclude: "@MODASSETSROOT/blockstates/@registryname.json"
     name: "@MODASSETSROOT/models/item/@registryname.json"
   - template: json/item_cmodel.json.ftl

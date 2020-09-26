@@ -607,7 +607,7 @@ package ${package}.entity;
 			int j = (int) this.posY;
 			int k = (int) this.posZ;
 			Random random = this.rand;
-            <@particles data.particleSpawningShape data.particleToSpawn data.particleSpawningRadious data.particleAmount data.particleSpawningCondition/>
+            <@particles data.particleSpawningShape data.particleToSpawn data.particleSpawningRadious data.particleAmount data.particleCondition/>
 		}
         </#if>
 

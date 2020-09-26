@@ -52,15 +52,33 @@
 
 <#function mappedMCItemToIngameItemName mappedBlock skipDefaultMetadata=false>
     <#if mappedBlock.toString().startsWith("CUSTOM:")>
-        <#assign customelement = generator.getRegistryNameForModElement(mappedBlock.toString().replace("CUSTOM:", "")
-        .replace(".helmet", "").replace(".body", "").replace(".legs", "").replace(".boots", ""))!""/>
+        <#assign meName = mappedBlock.toString().replace("CUSTOM:", "").replace(".helmet", "").replace(".body", "").replace(".legs", "").replace(".boots", "")>
+        <#assign customelement = generator.getRegistryNameForModElement(meName)!""/>
         <#if customelement?has_content>
-            <#return "\"item\": \"" + "${modid}:" + customelement
-            + (mappedBlock.toString().contains(".helmet"))?then("helmet", "")
-            + (mappedBlock.toString().contains(".body"))?then("body", "")
-            + (mappedBlock.toString().contains(".legs"))?then("legs", "")
-            + (mappedBlock.toString().contains(".boots"))?then("boots", "")
-            + "\"">
+            <#assign hasMetadata = false>
+            <#assign me = generator.getWorkspace().getModElementByName(meName)>
+            <#if me?has_content && me.getType() == "BLOCK">
+                <#assign ge = me.getGeneratableElement()>
+                <#if ge?has_content && ge['blockBase']?has_content && ge.blockBase == "Slab">
+                    <#assign hasMetadata = true>
+                </#if>
+            </#if>
+
+            <#if hasMetadata>
+                <#return "\"item\": \"" + "${modid}:" + customelement
+                + (mappedBlock.toString().contains(".helmet"))?then("helmet", "")
+                + (mappedBlock.toString().contains(".body"))?then("body", "")
+                + (mappedBlock.toString().contains(".legs"))?then("legs", "")
+                + (mappedBlock.toString().contains(".boots"))?then("boots", "")
+                + "\", \"data\": 0">
+            <#else>
+                <#return "\"item\": \"" + "${modid}:" + customelement
+                + (mappedBlock.toString().contains(".helmet"))?then("helmet", "")
+                + (mappedBlock.toString().contains(".body"))?then("body", "")
+                + (mappedBlock.toString().contains(".legs"))?then("legs", "")
+                + (mappedBlock.toString().contains(".boots"))?then("boots", "")
+                + "\"">
+            </#if>
         <#else>
             <#return "\"item\": \"minecraft:air\"">
         </#if>

@@ -644,7 +644,7 @@ package ${package}.block;
                 int j = y;
                 int k = z;
                 <@particles data.particleSpawningShape data.particleToSpawn data.particleSpawningRadious
-                data.particleAmount data.particleSpawningCondition/>
+                data.particleAmount data.particleCondition/>
             </#if>
 			<@procedureOBJToCode data.onRandomUpdateEvent/>
 		}

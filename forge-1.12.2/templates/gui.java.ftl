@@ -10,11 +10,8 @@ package ${package}.gui;
 	public static int GUIID = ${data.getModElement().getID(0)};
 	public static HashMap guistate = new HashMap();
 
-    <#assign w = (data.width/2)?round>
-    <#assign h = (data.height/2)?round>
-
-    <#assign mx = (data.W/2 - w)?round>
-    <#assign my = (data.H/2 - h)?round>
+    <#assign mx = data.W - data.width>
+    <#assign my = data.H - data.height>
 
 	<#assign slotnum = 0>
 
@@ -56,7 +53,9 @@ package ${package}.gui;
                     <#if component.getClass().getSimpleName()?ends_with("Slot")>
 					<#assign slotnum += 1>
                     this.customSlots.put(${component.id}, this.addSlotToContainer(
-							new Slot(internal, ${component.id}, ${(component.x/2 - mx/2 + 1)?round}, ${(component.y/2 - my/2 + 1)?round}) {
+							new Slot(internal, ${component.id}, 
+								${(component.x - mx / 2)?int + 1},
+								${(component.y - my / 2)?int + 1}) {
 
 						<#if hasProcedure(component.onSlotChanged)>
                         @Override public void onSlotChanged() {
@@ -102,8 +101,8 @@ package ${package}.gui;
                     </#if>
                 </#list>
 
-                <#assign coffx = ((w - 176)?abs / 2)?round>
-                <#assign coffy = ((h - 166)?abs / 2)?round>
+				<#assign coffx = ((data.width - 176) / 2 + data.inventoryOffsetX)?int>
+				<#assign coffy = ((data.height - 166) / 2 + data.inventoryOffsetY)?int>
 
                 int si;
 			    int sj;
@@ -210,7 +209,8 @@ package ${package}.gui;
 			this.y = y;
 			this.z = z;
 			this.entity = entity;
-			this.xSize = ${w}; this.ySize = ${h};
+			this.xSize = ${data.width};
+			this.ySize = ${data.height};
 		}
 
 		<#if data.renderBgLayer>
@@ -224,22 +224,23 @@ package ${package}.gui;
 		}
 
 		@Override protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1, 1, 1, 1);
 
 			<#if data.renderBgLayer>
 			this.mc.renderEngine.bindTexture(texture);
 			int k = (this.width - this.xSize) / 2;
 			int l = (this.height - this.ySize) / 2;
-			this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+			this.drawModalRectWithCustomSizedTexture(k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 			</#if>
 
 			zLevel = 100.0F;
-
+	
 			<#list data.components as component>
                 <#if component.getClass().getSimpleName() == "Image">
 					this.mc.renderEngine.bindTexture(new ResourceLocation("${modid}:textures/${component.image}"));
-                this.drawTexturedModalRect(this.guiLeft + ${(component.x/2 - mx/2)?round},
-						this.guiTop + ${(component.y/2 - my/2)?round}, 0, 0, 256, 256);
+					this.drawModalRectWithCustomSizedTexture(this.guiLeft + ${(component.x - mx/2)?int}, this.guiTop + ${(component.y - my/2)?int}, 0, 0,
+						${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())},
+						${component.getWidth(w.getWorkspace())}, ${component.getHeight(w.getWorkspace())});
                 </#if>
             </#list>
 		}
@@ -280,7 +281,7 @@ package ${package}.gui;
                 ${component.name}.drawTextBox();
                 <#elseif component.getClass().getSimpleName() == "Label">
                 this.fontRenderer.drawString("${translateTokens(JavaConventions.escapeStringForJava(component.text))}",
-                    ${(component.x/2 - mx/2)?round}, ${(component.y/2 - my/2)?round}, ${component.color.getRGB()});
+					${(component.x - mx / 2)?int}, ${(component.y - my / 2)?int}, ${component.color.getRGB()});
                 </#if>
             </#list>
 		}
@@ -293,7 +294,8 @@ package ${package}.gui;
 		@Override public void initGui() {
 			super.initGui();
 
-			this.guiLeft = (this.width - ${w}) / 2; this.guiTop = (this.height - ${h}) / 2;
+			this.guiLeft = (this.width - ${data.width}) / 2; 
+			this.guiTop = (this.height - ${data.height}) / 2;
 
 			Keyboard.enableRepeatEvents(true);
 
@@ -305,16 +307,15 @@ package ${package}.gui;
                 <#if component.getClass().getSimpleName() == "TextField">
                     ${component.name} =
 					new GuiTextField(${tfid},
-							this.fontRenderer, ${(component.x/2 - mx/2)?round}, ${(component.y/2 - my/2)?round},
-                        ${(component.width/2)?round}, ${(component.height/2)?round});
+							this.fontRenderer, ${(component.x - mx/2)?int}, ${(component.y - my/2)?int},
+                        ${component.width}, ${component.height});
                     guistate.put("text:${component.name}", ${component.name});
                     ${component.name}.setMaxStringLength(32767);
                     ${component.name}.setText("${component.placeholder}");
                     <#assign tfid +=1>
                 <#elseif component.getClass().getSimpleName() == "Button">
-                    this.buttonList.add(new GuiButton(${btid}, this.guiLeft + ${(component.x/2 - mx/2)?round},
-							this.guiTop
-									+ ${(component.y/2 - my/2)?round}, ${(component.width/2)?round}, ${(component.height/2)?round},
+                    this.buttonList.add(new GuiButton(${btid}, this.guiLeft + ${(component.x - mx/2)?int},
+							this.guiTop + ${(component.y - my/2)?int}, ${component.width}, ${component.height},
 							"${component.text}"));
                     <#assign btid +=1>
                 </#if>
