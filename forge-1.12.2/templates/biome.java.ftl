@@ -40,7 +40,6 @@ package ${package}.world.biome;
 			setRegistryName("${registryname}");
 			topBlock = ${mappedBlockToBlockStateCode(data.groundBlock)};
 			fillerBlock = ${mappedBlockToBlockStateCode(data.undergroundBlock)};
-			decorator.generateFalls = ${data.generateLakes};
 			decorator.treesPerChunk = ${data.treesPerChunk};
 			decorator.flowersPerChunk = ${data.flowersPerChunk};
 			decorator.grassPerChunk = ${data.grassPerChunk};
