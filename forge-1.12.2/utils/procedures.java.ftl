@@ -14,7 +14,7 @@
         $_dependencies.put("${key}",${value});
         </#list>
 
-        Procedure${(name)}.executeProcedure($_dependencies);
+        Procedure${name}.executeProcedure($_dependencies);
 	}
 </#macro>
 
@@ -39,7 +39,7 @@
         <#assign depsBuilder += [value]>
     </#list>
 
-    ${(name)}Procedure.executeProcedure(ImmutableMap.of(
+    Procedure${name}.executeProcedure(ImmutableMap.of(
         <#list depsBuilder as dep>
             ${dep}<#if dep?has_next>,</#if>
         </#list>
