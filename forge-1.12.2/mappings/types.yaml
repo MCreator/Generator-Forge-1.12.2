@@ -8,3 +8,4 @@ map: HashMap
 string: String
 boolean: boolean
 direction: EnumFacing
+dimensiontype: int
