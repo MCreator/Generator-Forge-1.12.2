@@ -4,7 +4,7 @@ public static class BlockCustomPortal extends BlockPortal {
 		setHardness(-1.0F);
 		setUnlocalizedName("${registryname}_portal");
 		setRegistryName("${registryname}_portal");
-		setLightLevel(${data.portalLuminance}F);
+		setLightLevel(${data.portalLuminance / 15}F);
 	}
 
 	@Override public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
