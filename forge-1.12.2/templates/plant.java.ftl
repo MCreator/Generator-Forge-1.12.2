@@ -94,7 +94,7 @@ package ${package}.block;
 			setCreativeTab(${data.creativeTab});
 			setHardness(${data.hardness}F);
 			setResistance(${data.resistance}F);
-			setLightLevel(${data.luminance}F);
+			setLightLevel(${data.luminance / 15}F);
 			setUnlocalizedName("${registryname}");
 			setRegistryName("${registryname}");
 			<#if data.unbreakable>setBlockUnbreakable();</#if>

@@ -149,7 +149,7 @@ package ${package}.block;
 
 			setHardness(${data.hardness}F);
 			setResistance(${data.resistance}F);
-			setLightLevel(${data.luminance}F);
+			setLightLevel(${data.luminance / 15}F);
 			setLightOpacity(${data.lightOpacity});
 			setCreativeTab(${data.creativeTab});
 			<#if data.unbreakable>setBlockUnbreakable();</#if>
