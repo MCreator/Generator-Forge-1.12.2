@@ -47,7 +47,7 @@ package ${package}.world.biome;
 			decorator.bigMushroomsPerChunk = ${data.bigMushroomsChunk};
 			decorator.reedsPerChunk = ${data.reedsPerChunk};
 			decorator.cactiPerChunk = ${data.cactiPerChunk};
-			decorator.sandPatchesPerChunk = ${data.sandPathcesPerChunk};
+			decorator.sandPatchesPerChunk = ${data.sandPatchesPerChunk};
 			decorator.gravelPatchesPerChunk = ${data.gravelPatchesPerChunk};
 
 			this.spawnableMonsterList.clear();
@@ -178,7 +178,7 @@ package ${package}.world.biome;
 
 								this.setBlockAndNotifyAdequately(world, position.up(genh), ${mappedBlockToBlockStateCode(data.treeStem)});
 
-								<#if data.spawnVines>
+								<#if !data.treeVines.isEmpty()>
 								if (genh > 0) {
 									if (rand.nextInt(3) > 0 && world.isAirBlock(position.add(-1, genh, 0)))
 										this.setBlockAndNotifyAdequately(world, position.add(-1, genh, 0), ${mappedBlockToBlockStateCode(data.treeVines)});
@@ -196,7 +196,7 @@ package ${package}.world.biome;
 							}
 						}
 
-						<#if data.spawnVines>
+						<#if !data.treeVines.isEmpty()>
 							for (int genh = position.getY() - 3 + height; genh <= position.getY() + height; genh++) {
 								int k4 = (int) (1 - (genh - (position.getY() + height)) * 0.5);
 								for (int genx = position.getX() - k4; genx <= position.getX() + k4; genx++) {
@@ -228,6 +228,7 @@ package ${package}.world.biome;
 							}
                         </#if>
 
+						<#if !data.treeFruits.isEmpty()>
 						if (rand.nextInt(4) == 0 && height > 5) {
 							for (int hlevel = 0; hlevel < 2; hlevel++) {
 								for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL) {
@@ -239,6 +240,7 @@ package ${package}.world.biome;
 								}
 							}
 						}
+						</#if>
 
 						return true;
 					} else {
