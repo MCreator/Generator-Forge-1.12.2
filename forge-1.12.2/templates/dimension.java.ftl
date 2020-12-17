@@ -81,7 +81,11 @@ package ${package}.world;
 		}
 
 		@Override @SideOnly(Side.CLIENT) public Vec3d getFogColor(float par1, float par2) {
+			<#if data.airColor?has_content>
 			return new Vec3d(${data.airColor.getRed()/255},${data.airColor.getGreen()/255},${data.airColor.getBlue()/255});
+			<#else>
+			return new Vec3d(0.753f, 0.847f, 1);
+			</#if>
 		}
 
 		@Override public IChunkGenerator createChunkGenerator() {
