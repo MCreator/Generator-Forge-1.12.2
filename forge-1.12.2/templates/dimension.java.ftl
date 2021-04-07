@@ -53,7 +53,7 @@ package ${package}.world;
 			</#if>
 		}
 
-		<#if !data.hasWeather>
+		<#if !data.imitateOverworldBehaviour>
 		@Override public void calculateInitialWeather() {
 		}
 

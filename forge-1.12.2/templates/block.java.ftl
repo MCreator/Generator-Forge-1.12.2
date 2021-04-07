@@ -2,6 +2,7 @@
 <#include "mcitems.ftl">
 <#include "procedures.java.ftl">
 <#include "particles.java.ftl">
+<#include "boundingboxes.java.ftl">
 
 package ${package}.block;
 
@@ -316,70 +317,19 @@ package ${package}.block;
 		}
         </#if>
 
-		<#if data.isNotColidable || data.mx != 0 || data.my != 0 || data.mz != 0 || data.Mx != 1 || data.My != 1 || data.Mz != 1>
+		<#if data.isNotColidable || !data.isFullCube()>
 		@Override public boolean isFullCube(IBlockState state) {
 			return false;
 		}
         </#if>
 
-		<#if data.mx != 0 || data.my != 0 || data.mz != 0 || data.Mx != 1 || data.My != 1 || data.Mz != 1>
+		<#if data.boundingBoxes?? && !data.blockBase?? && !data.isFullCube()>
 		@Override public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-			<#if data.rotationMode == 1 || data.rotationMode == 3>
-			switch ((EnumFacing) state.getValue(BlockHorizontal.FACING)) {
-			case UP:
-			case DOWN:
-			case SOUTH:
-			default:
-				return new AxisAlignedBB(${1-data.mx}D, ${data.my}D, ${1-data.mz}D, ${1-data.Mx}D, ${data.My}D,
-                            ${1-data.Mz}D);
-			case NORTH:
-				return new AxisAlignedBB(${data.mx}D, ${data.my}D, ${data.mz}D, ${data.Mx}D, ${data.My}D, ${data.Mz}D);
-			case WEST:
-				return new AxisAlignedBB(${data.mz}D, ${data.my}D, ${1-data.mx}D, ${data.Mz}D, ${data.My}D,
-                            ${1-data.Mx}D);
-			case EAST:
-				return new AxisAlignedBB(${1-data.mz}D, ${data.my}D, ${data.mx}D, ${1-data.Mz}D, ${data.My}D,
-                            ${data.Mx}D);
-			}
-			<#elseif data.rotationMode == 2 || data.rotationMode == 4>
-			switch ((EnumFacing) state.getValue(BlockDirectional.FACING)) {
-			case SOUTH:
-			default:
-				return new AxisAlignedBB(${1-data.mx}D, ${data.my}D, ${1-data.mz}D, ${1-data.Mx}D, ${data.My}D,
-                            ${1-data.Mz}D);
-			case NORTH:
-				return new AxisAlignedBB(${data.mx}D, ${data.my}D, ${data.mz}D, ${data.Mx}D, ${data.My}D, ${data.Mz}D);
-			case WEST:
-				return new AxisAlignedBB(${data.mz}D, ${data.my}D, ${1-data.mx}D, ${data.Mz}D, ${data.My}D,
-                            ${1-data.Mx}D);
-			case EAST:
-				return new AxisAlignedBB(${1-data.mz}D, ${data.my}D, ${data.mx}D, ${1-data.Mz}D, ${data.My}D,
-                            ${data.Mx}D);
-			case UP:
-				return new AxisAlignedBB(${data.mx}D, ${1-data.mz}D, ${data.my}D, ${data.Mx}D, ${1-data.Mz}D,
-                            ${data.My}D);
-			case DOWN:
-				return new AxisAlignedBB(${data.mx}D, ${data.mz}D, ${1-data.my}D, ${data.Mx}D, ${data.Mz}D,
-                            ${1-data.My}D);
-			}
-			<#elseif data.rotationMode == 5>
-			switch ((EnumFacing) state.getValue(BlockDirectional.FACING)) {
-			case SOUTH:
-			case NORTH:
-			default:
-				return new AxisAlignedBB(${data.mx}D, ${data.my}D, ${data.mz}D, ${data.Mx}D, ${data.My}D, ${data.Mz}D);
-			case EAST:
-			case WEST:
-				return new AxisAlignedBB(${data.mx}D, ${1-data.mz}D, ${data.my}D, ${data.Mx}D, ${1-data.Mz}D,
-							${data.My}D);
-			case UP:
-			case DOWN:
-				return new AxisAlignedBB(${data.my}D, ${1-data.mx}D, ${1-data.mz}D, ${data.My}D, ${1-data.Mx}D,
-							${1-data.Mz}D);
-			}
-            <#else>
-			return new AxisAlignedBB(${data.mx}D, ${data.my}D, ${data.mz}D, ${data.Mx}D, ${data.My}D, ${data.Mz}D);
-            </#if>
+			<#if data.isBoundingBoxEmpty()>
+				return new AxisAlignedBB(0, 0, 0, 0, 0, 0);
+			<#else>
+				<@boundingBoxWithRotation data.positiveBoundingBoxes() data.rotationMode/>
+			</#if>
 		}
         </#if>
 
@@ -445,12 +395,6 @@ package ${package}.block;
 				facing = EnumFacing.SOUTH;
 			return this.getDefaultState().withProperty(FACING, facing);
 			</#if>
-		}
-        </#if>
-
-		<#if data.isBeaconBase>
-		@Override public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
-			return true;
 		}
         </#if>
 
