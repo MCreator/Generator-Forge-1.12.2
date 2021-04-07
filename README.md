@@ -3,7 +3,7 @@
 
 ## For MCreator 2020.5
 
-This branch is designed to make 1.12.2 generator compatible with 2020.5 version of MCreator. Check branches for specific versions.
+This branch is designed to make 1.12.2 generator compatible with 2021.1 version of MCreator. Check branches for specific versions.
 
 This version should load in 2020.5, but will not support all features and might break things.
 

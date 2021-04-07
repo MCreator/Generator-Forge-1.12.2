@@ -21,7 +21,7 @@ compileJava {
 minecraft {
     version = '1.12.2-${generator.getGeneratorBuildFileVersion()}'
     runDir = 'run'
-    mappings = 'snapshot_20171003'
+    mappings = 'snapshot_20180814'
 }
 
 processResources {
