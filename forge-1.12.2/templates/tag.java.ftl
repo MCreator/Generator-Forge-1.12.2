@@ -12,11 +12,11 @@ package ${package}.util;
 	@Override public void init(FMLInitializationEvent event){
 		<#if data.type == "Items">
 			<#list data.items as value>
-			OreDictionary.registerOre("${data.getOreDictName()}", ${mappedMCItemToItemStackCode(value, 1)});
+			OreDictionary.registerOre("${(data.getNameRaw())!data.name}", ${mappedMCItemToItemStackCode(value, 1)});
 			</#list>
 		<#elseif data.type == "Blocks">
 			<#list data.blocks as value>
-			OreDictionary.registerOre("${data.getOreDictName()}", ${mappedMCItemToItemStackCode(value, 1)});
+			OreDictionary.registerOre("${(data.getNameRaw())!data.name}", ${mappedMCItemToItemStackCode(value, 1)});
 			</#list>
 		</#if>
 	}
