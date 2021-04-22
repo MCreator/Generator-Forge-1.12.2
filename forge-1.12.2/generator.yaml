@@ -2,7 +2,7 @@ name: Minecraft Forge for @minecraft (@buildfileversion)
 basefeatures: [~variables, model_json, model_obj, model_java, i18n, structures, textures, sounds]
 partial_support: [loottable, recipe, block, achievement, mob, keybind]
 status: deprecated
-buildfileversion: 14.23.5.2854
+buildfileversion: 14.23.5.2855
 
 start_id_map:
   dimension: 2
