@@ -1,11 +1,11 @@
 # MCreator generator for Minecraft Forge 1.12.2 mods
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/MCreator/Generator-Forge-1.12.2/blob/master/LICENSE)
 
-## For MCreator 2020.5
+## For MCreator 2021.1
 
-This branch is designed to make 1.12.2 generator compatible with 2020.5 version of MCreator. Check branches for specific versions.
+This branch is designed to make 1.12.2 generator compatible with 2021.1 version of MCreator. Check branches for specific versions.
 
-This version should load in 2020.5, but will not support all features and might break things.
+This version should load in 2021.1, but will not support all features and might break things.
 
 ## How to install
 

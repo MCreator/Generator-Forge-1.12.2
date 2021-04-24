@@ -2,13 +2,14 @@ name: Minecraft Forge for @minecraft (@buildfileversion)
 basefeatures: [~variables, model_json, model_obj, model_java, i18n, structures, textures, sounds]
 partial_support: [loottable, recipe, block, achievement, mob, keybind]
 status: deprecated
-buildfileversion: 14.23.5.2768
+buildfileversion: 14.23.5.2855
+subversion: 4.0
 
 start_id_map:
   dimension: 2
 
 gradle:
-  setup_task: "setupDecompWorkspace --refresh-dependencies"
+  setup_task: eclipse
   run_client: runClient
   run_server: runServer
   export_file: "build/libs/modid-1.0.jar"
