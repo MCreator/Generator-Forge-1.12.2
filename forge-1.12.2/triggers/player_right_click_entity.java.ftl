@@ -1,5 +1,6 @@
 @SubscribeEvent public void onRightClickEntity(PlayerInteractEvent.EntityInteract event){
 		Entity entity=event.getTarget();
+		EntityPlayer sourceEntity = event.getEntityPlayer();
 		int i=event.getPos().getX();
 		int j=event.getPos().getY();
 		int k=event.getPos().getZ();
@@ -11,5 +12,6 @@
 		dependencies.put("world" ,world);
 		dependencies.put("entity" ,entity);
 		dependencies.put("event",event);
+		dependencies.put("sourceentity", sourceEntity);
 		this.executeProcedure(dependencies);
 }
